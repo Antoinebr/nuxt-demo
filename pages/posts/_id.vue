@@ -1,20 +1,22 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
-      <h1 class="title">
-        Home
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
+
+        <article>
+
+            <h1 class="subtitle">{{post.title}}</h1>
+        
+            <p> {{post.body}} </p>
 
 
-        <nuxt-link to="/about" class="button--green" >About</nuxt-link>
-        <nuxt-link to="/posts" class="button--green" >The blog</nuxt-link>
+            <div class="links">
 
-      </div>
+                <nuxt-link to="/posts/" class="button--green" >Back to articles</nuxt-link>
+
+            </div>
+
+        </article>
+        
     </div>
   </section>
 </template>
@@ -22,7 +24,24 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 
+import fetch from 'node-fetch'
+
+
 export default {
+
+
+  asyncData ({ params } ) {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
+     
+    .then( (response) => response.json() )
+    .then( (res) => {
+
+        return { post : res}
+
+     }).catch( (err) => console.log(res) );
+
+  },
+
   components: {
     AppLogo
   }
@@ -58,4 +77,18 @@ export default {
 .links {
   padding-top: 15px;
 }
+
+
+article{
+    max-width: 100%;
+    width: 600px;
+
+    display: block;
+    margin: auto;
+
+    padding-top: 20px;
+    margin-bottom: 20px;
+
+}
+
 </style>

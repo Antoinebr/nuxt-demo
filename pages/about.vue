@@ -2,20 +2,30 @@
   <section class="container">
     <div>
       <app-logo/>
+
+       <div class="links">
+
+        <nuxt-link to="/" class="button--green" >Back to Home</nuxt-link>
+      </div>
+
       <h1 class="title">
         About
       </h1>
       <h2 class="subtitle">
-        Nuxt.js project
+       {{title}}
       </h2>
 
-      <p> Lorem ipsum dolor sit met, qui at desert mandamus, adduce ullum apeirian mea at. Eu mel vide saltando vituperata, sonet quidam deterruisset te qui. Te cum vivendum explicate abhorrent. Id venom argumentum vel. Ut lorem bocent hendrerit eam. </p>
-      <div class="links">
+      <article>
 
-        <nuxt-link to="/" class="button--green" >Home</nuxt-link>
+        Lorem ipsum dolor sit met, qui at desert mandamus, adduce ullum apeirian mea at. Eu mel vide saltando vituperata, sonet quidam deterruisset te qui. Te cum vivendum explicate abhorrent. Id venom argumentum vel. Ut lorem bocent hendrerit eam. 
+        Lorem ipsum dolor sit met, qui at desert mandamus, adduce ullum apeirian mea at. Eu mel vide saltando vituperata, sonet quidam deterruisset te qui. Te cum vivendum explicate abhorrent. Id venom argumentum vel. Ut lorem bocent hendrerit eam. 
+        Lorem ipsum dolor sit met, qui at desert mandamus, adduce ullum apeirian mea at. Eu mel vide saltando vituperata, sonet quidam deterruisset te qui. Te cum vivendum explicate abhorrent. Id venom argumentum vel. Ut lorem bocent hendrerit eam. 
 
+      </article>
 
-      </div>
+     
+     
+     
     </div>
   </section>
 </template>
@@ -24,6 +34,20 @@
 import AppLogo from '~/components/AppLogo.vue'
 
 export default {
+
+
+  asyncData () {
+    return fetch('https://jsonplaceholder.typicode.com/posts/1')
+     
+    .then( (response) => response.json() )
+    .then( (res) => {
+
+        return { title: res.title }
+
+     }).catch( (err) => console.log(res) );
+
+  },
+
   components: {
     AppLogo
   }
