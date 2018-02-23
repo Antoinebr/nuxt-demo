@@ -35,19 +35,6 @@ import AppLogo from '~/components/AppLogo.vue'
 
 export default {
 
-
-  asyncData () {
-    return fetch('https://jsonplaceholder.typicode.com/posts/1')
-     
-    .then( (response) => response.json() )
-    .then( (res) => {
-
-        return { title: res.title }
-
-     }).catch( (err) => console.log(res) );
-
-  },
-
   components: {
     AppLogo
   }

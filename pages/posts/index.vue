@@ -47,6 +47,17 @@ export default {
 
   },
 
+
+
+  head () {
+    return {
+      title: this.posts[0].title,
+      meta: [
+        { hid: 'description', name: 'description', content: 'Ma description personnalisée' }
+      ]
+    }
+  },
+
   components: {
     AppLogo
   }
