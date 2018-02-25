@@ -14,6 +14,27 @@ module.exports = {
     ]
   },
   
+
+  modules: [
+    '@nuxtjs/pwa',
+  ],
+
+
+  workbox: {
+    
+    runtimeCaching: [
+      {
+        // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
+        urlPattern: 'https://jsonplaceholder.typicode.com/*',
+        // Defaults to `networkFirst` if omitted
+        handler: 'networkFirst',
+        // Defaults to `GET` if omitted
+        method: 'GET'
+      }
+    ]
+    
+  },
+
   /*
   ** Customize the progress bar color
   */

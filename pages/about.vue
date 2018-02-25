@@ -8,12 +8,9 @@
         <nuxt-link to="/" class="button--green" >Back to Home</nuxt-link>
       </div>
 
-      <h1 class="title">
-        About
-      </h1>
-      <h2 class="subtitle">
-       {{title}}
-      </h2>
+      <h1 class="title">About</h1>
+
+      <h2 class="subtitle">{{title}}</h2>
 
       <article>
 
@@ -22,10 +19,7 @@
         Lorem ipsum dolor sit met, qui at desert mandamus, adduce ullum apeirian mea at. Eu mel vide saltando vituperata, sonet quidam deterruisset te qui. Te cum vivendum explicate abhorrent. Id venom argumentum vel. Ut lorem bocent hendrerit eam. 
 
       </article>
-
-     
-     
-     
+ 
     </div>
   </section>
 </template>
@@ -37,6 +31,50 @@ export default {
 
   components: {
     AppLogo
+  },
+
+  methods(){
+
+
+    function listCaches(){
+
+      return new Promise( (resolve, reject) => {  
+         
+        caches.keys().then(function(cacheNames) {
+
+          if( cacheNames.length === 0 ) return reject("no caches");
+
+          return resolve(cacheNames);
+
+        });
+        
+      }) 
+
+    }
+    
+
+    function getCachedUrls(cacheName){
+
+      return new Promise( (resolve, reject) => {  
+  
+        caches.open(cacheName).then(function(cache) {
+          
+          if( cache.length === 0 ) return reject("no caches");
+
+          cache.keys().then( keyList => {
+          
+                return resolve(keyList);
+            
+          });
+
+        });  
+
+      })
+
+    }
+ 
+
+
   }
 }
 </script>
