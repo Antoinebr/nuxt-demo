@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  front:
+    image: antoine/nuxt 
+    ports:
+    - 1515:3000
+    volumes:
+    - ./:/usr/src/app/
+    

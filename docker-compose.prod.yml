@@ -1,19 +1,17 @@
 version: '3'
 services:
 
-
   front:
-    image: node:alpine
+    image: antoine/nuxt
     expose:
     - "80"
     - "443"
     volumes:
-    - /home/nuxt:/app/
+    - ./:/usr/src/app/
     environment:
-      VIRTUAL_HOST: thegoodmobileui.com
-      LETSENCRYPT_HOST: thegoodmobileui.com
+      VIRTUAL_HOST: node.antoinebrossault.com
+      LETSENCRYPT_HOST: node.antoinebrossault.com
       LETSENCRYPT_EMAIL: antoinebrossault@gmail.com
-
 
 networks:
   default:

@@ -1,0 +1,11 @@
+assets
+components
+layouts
+middleware
+node_modules
+pages
+plugins
+statuc
+store
+
+docker-compose.prod*
