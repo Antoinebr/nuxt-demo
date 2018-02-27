@@ -1,6 +1,12 @@
-# nuxt
+# PWA nuxt demo 🔥
 
-> Nuxt.js project
+> A project to discover what can be don with nuxt.js 
+
+## Live demo 🚀
+
+https://nuxt.antoinebrossault.com
+
+
 
 ## Build Setup
 
